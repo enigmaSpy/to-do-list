@@ -11,6 +11,22 @@ const taskList = [
     },
 ];
 
+const toggleDontTask = () =>{
+    const taskDoneBtns = document.querySelectorAll('.main__taskDoneBtn--js');
+    taskDoneBtns.forEach((btn, index) => {
+        btn.addEventListener('click', ()=>{
+            console.log("element clicked");
+            taskList[index].done = !taskList[index].done;
+            renderContent();
+        })
+    })
+    
+}
+
+const buttonsFunctionality = () => {
+    toggleDontTask();
+}
+
 const taskContentValidation = () => {
     if ((userInput.value.trim()).length >= 3) {
         return true;
@@ -54,6 +70,7 @@ const renderContent = () => {
          `
     });
     taskListElement.innerHTML = result;
+    buttonsFunctionality();
 }
 
 
@@ -61,5 +78,6 @@ const renderContent = () => {
 const init = () => {
     renderContent();
     addNewTask();
+    
 }
 init();
