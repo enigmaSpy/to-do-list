@@ -11,17 +11,19 @@ const taskList = [
     },
 ];
 
-const toggleDontTask = () =>{
+const toggleDontTask = () => {
     const taskDoneBtns = document.querySelectorAll('.main__taskDoneBtn--js');
     taskDoneBtns.forEach((btn, index) => {
-        btn.addEventListener('click', ()=>{
+        btn.addEventListener('click', () => {
             console.log("element clicked");
             taskList[index].done = !taskList[index].done;
             renderContent();
         })
     })
-    
+
 }
+
+
 
 const buttonsFunctionality = () => {
     toggleDontTask();
@@ -48,12 +50,12 @@ const addNewTask = () => {
             });
             renderContent();
             userInput.value = '';
-            
-        }else{
+
+        } else {
             validationAllert.classList.add('form__statusAlert--active');
         }
         userInput.focus();
-        
+
     })
 }
 const renderContent = () => {
@@ -63,8 +65,10 @@ const renderContent = () => {
     taskList.forEach(({ taskName, done }) => {
         result += `
          <li class="main__taskItem">
-            <button class="main__taskBtn main__taskDoneBtn--js">${done ? "✔️" : "❌"}</button>
-            <span class="main__taskName">${taskName}</span>
+            <button class="main__taskBtn main__taskDoneBtn--js" >
+                ${done ? "✔️" : "❌"}
+            </button>
+            <span class="main__taskName" style="${!done?'text-decoration:line-through':''}">${taskName}</span>
             <button class="main__taskBtn main__taskDeleteBtn--js">🗑️</button>
          </li>
          `
@@ -78,6 +82,6 @@ const renderContent = () => {
 const init = () => {
     renderContent();
     addNewTask();
-    
+
 }
 init();
