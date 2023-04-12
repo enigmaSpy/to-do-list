@@ -20,13 +20,24 @@ const toggleDontTask = () => {
             renderContent();
         })
     })
+}
 
+const deleteTask = () => {
+    const taskDeleteBtns = document.querySelectorAll('.main__taskDeleteBtn--js');
+    taskDeleteBtns.forEach((btn, index) => {
+        btn.addEventListener('click', ()=>{
+            taskList.splice(index,1);
+            renderContent();
+        })
+        
+    })
 }
 
 
 
 const buttonsFunctionality = () => {
     toggleDontTask();
+    deleteTask();
 }
 
 const taskContentValidation = () => {
