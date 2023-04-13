@@ -77,9 +77,9 @@ const renderContent = () => {
         result += `
          <li class="main__taskItem">
             <button class="main__taskBtn main__taskDoneBtn--js" >
-                ${done ? "✔️" : "❌"}
+                ${!done ? "✔️" : "❌"}
             </button>
-            <span class="main__taskName" style="${!done?'text-decoration:line-through':''}">${taskName}</span>
+            <span class="main__taskName" style="${done?'text-decoration:line-through':''}">${taskName}</span>
             <button class="main__taskBtn main__taskDeleteBtn--js">🗑️</button>
          </li>
          `
