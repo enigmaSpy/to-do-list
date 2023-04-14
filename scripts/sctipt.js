@@ -15,7 +15,6 @@ const toggleDontTask = () => {
     const taskDoneBtns = document.querySelectorAll('.main__taskDoneBtn--js');
     taskDoneBtns.forEach((btn, index) => {
         btn.addEventListener('click', () => {
-            console.log("element clicked");
             taskList[index].done = !taskList[index].done;
             renderContent();
         })
@@ -49,12 +48,10 @@ const taskContentValidation = () => {
 };
 
 const addNewTask = () => {
-    const validationAllert = document.querySelector('.form__statusAlert');
     const button = document.querySelector('.form__addTaskBtn--js');
     button.addEventListener('click', (e) => {
         e.preventDefault();
         if (taskContentValidation()) {
-            validationAllert.classList.remove('form__statusAlert--active');
             taskList.push({
                 taskName: userInput.value,
                 done: false
@@ -62,9 +59,7 @@ const addNewTask = () => {
             renderContent();
             userInput.value = '';
 
-        } else {
-            validationAllert.classList.add('form__statusAlert--active');
-        }
+        } 
         userInput.focus();
 
     })

@@ -25,16 +25,4 @@
   border: none;
   cursor: pointer;
 }
-.form__statusAlert {
-  height: 0px;
-  overflow: hidden;
-  text-align: center;
-  background-color: rgba(244, 126, 150, 0.597);
-  transition: height 0.2s ease-in-out;
-  flex: 1;
-}
 
-.form__statusAlert--active {
-  height: 20px;
-
-}
